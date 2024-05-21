@@ -13,6 +13,7 @@
 
 #define DEBUG_ASSERT(expr) assert(expr)
 
-#define FLOAT_DIFF_ABS_EQ_EPS(a, b, eps) ((a - b > -eps) && (a - b) < eps)
+#define FLOAT_DIFF_ABS_EQ_EPS(a, b, eps) ((a - b > -eps) && (a - b < eps))
 #define FLOAT_DIFF_ABS_EQ(a, b) \
-    FLOAT_DIFF_ABS_EQ_EPS(a, b, (typeid(a - b) == typeid(float) ? std::numeric_limits<float>::epsilon() : std::numeric_limits<double>::epsilon()))
+    FLOAT_DIFF_ABS_EQ_EPS(a, b, \
+                          (typeid(a - b) == typeid(float) ? std::numeric_limits<float>::epsilon() : std::numeric_limits<double>::epsilon()))

@@ -1,2 +1,3 @@
 add_executable(basic_types basic_types.cpp)
 add_executable(type_convert_when_init type_convert_when_init.cpp)
+add_executable(left_reference left_reference.cpp)
