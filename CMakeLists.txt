@@ -14,3 +14,4 @@ add_compile_options(-Werror)
 include_directories(${CMAKE_SOURCE_DIR})
 
 add_subdirectory(type_system)
+add_subdirectory(container)

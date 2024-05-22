@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "simple_assert.h"
+#include "assert/simple_assert.h"
 
 void modify_int_val(int &x)
 {

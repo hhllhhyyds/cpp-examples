@@ -1,6 +1,6 @@
 #include <limits>
 
-#include "simple_assert.h"
+#include "assert/simple_assert.h"
 
 int main()
 {
