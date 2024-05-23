@@ -1,12 +1,40 @@
 #include "assert/simple_assert.h"
 
-void float_to_int()
+void float_convert()
 {
     int i = 0;
     i = 3.14;
     RELEASE_ASSERT(i == 3);
     i = -3.14;
     RELEASE_ASSERT(i == -3);
+
+    double d = 3.1414;
+
+    // int a{d}; // compiler warning
+    int a(d);
+    RELEASE_ASSERT(a == 3);
+
+    float x = d;
+    RELEASE_ASSERT(x != d); // lost accuracy
+    // float y{d};             // compiler warining
+
+    // int b = {d}; // compiler warning
+    // so use branket initialization as more as possible
+    int b = d;
+    RELEASE_ASSERT(b == 3);
+
+    double c{d};
+    RELEASE_ASSERT(c == d);
+
+    RELEASE_ASSERT(0.1 + 0.2 != 0.3);
+    RELEASE_ASSERT(FLOAT_DIFF_ABS_EQ(0.1 + 0.2, 0.3));
+
+    RELEASE_ASSERT(FLOAT_DIFF_ABS_EQ(c, d));
+    RELEASE_ASSERT(!FLOAT_DIFF_ABS_EQ(c, d + 2.0 * std::numeric_limits<double>::epsilon()));
+
+    float df = 3.14;
+    float cf{df};
+    RELEASE_ASSERT(FLOAT_DIFF_ABS_EQ(cf, df + static_cast<float>(2.0 * std::numeric_limits<double>::epsilon())));
 }
 
 void signed_to_unsigned()
@@ -52,7 +80,7 @@ void bool_convert()
 
 int main()
 {
-    float_to_int();
+    float_convert();
     signed_to_unsigned();
     overflow();
     bool_convert();
