@@ -1,0 +1,1 @@
+add_executable(basic_type_info basic_type_info.cpp)
