@@ -67,6 +67,11 @@ void vector_init()
     cout << "v6 = ";
     print_vector<double>(cout, v6);
     cout << "\n";
+
+    vector<double> v7(v6.cbegin(), v6.cbegin() + 2);
+    cout << "v7 = ";
+    print_vector<double>(cout, v7);
+    cout << "\n";
 }
 
 void array_init()
