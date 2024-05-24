@@ -1,2 +1,2 @@
-add_executable(string_example string.cpp)
-add_executable(vector_example vector.cpp)
+add_exec_and_test(string_example string.cpp)
+add_exec_and_test(vector_example vector.cpp)

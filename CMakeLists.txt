@@ -28,6 +28,15 @@ add_compile_options(-Werror)
 # setup top include directory
 include_directories(${CMAKE_SOURCE_DIR})
 
+# enable testing
+include(CTest)
+enable_testing()
+macro(add_exec_and_test exe_name srcs)
+    add_executable(${exe_name} ${srcs})
+    add_test(NAME ${exe_name} COMMAND $<TARGET_FILE:${exe_name}>)
+endmacro(add_exec_and_test exe_name srcs)
+
+
 # subdirectories
 add_subdirectory(container)
 add_subdirectory(basic_types)
