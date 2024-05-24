@@ -125,13 +125,13 @@ void array_init()
 void vector_iter()
 {
     vector<float> v;
-    for (auto i = 0; i < 20; i++)
+    for (auto i = 0; i < 20; ++i)
     {
         v.push_back(i);
     }
     auto iter = v.begin();
     iter += 10;
-    for (; iter != v.end(); iter++)
+    for (; iter != v.end(); ++iter)
     {
         cout << *iter << ", ";
     }
@@ -139,7 +139,7 @@ void vector_iter()
 
     auto iter_r = v.crbegin();
     iter_r += 10;
-    for (; iter_r != v.crend(); iter_r++)
+    for (; iter_r != v.crend(); ++iter_r)
     {
         cout << *iter_r << ", ";
     }
@@ -147,7 +147,7 @@ void vector_iter()
 
     int int_arr[] = {1, 2, 3, 4, 5};
     vector<int> v1(std::begin(int_arr), std::end(int_arr));
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 5; ++i)
     {
         RELEASE_ASSERT(i + 1 == int_arr[i]);
     }
@@ -156,13 +156,13 @@ void vector_iter()
 void array_iter()
 {
     array<float, 20> v;
-    for (auto i = 0; i < 20; i++)
+    for (auto i = 0; i < 20; ++i)
     {
         v[i] = i;
     }
     auto iter = v.begin();
     iter += 10;
-    for (; iter != v.end(); iter++)
+    for (; iter != v.end(); ++iter)
     {
         cout << *iter << ", ";
     }
@@ -170,7 +170,7 @@ void array_iter()
 
     auto iter_r = v.crbegin();
     iter_r += 10;
-    for (; iter_r != v.crend(); iter_r++)
+    for (; iter_r != v.crend(); ++iter_r)
     {
         cout << *iter_r << ", ";
     }
