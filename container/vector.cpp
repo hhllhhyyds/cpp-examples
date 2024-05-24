@@ -1,10 +1,15 @@
 #include <vector>
 #include <iostream>
 #include <array>
+#include <string>
+#include <iterator>
+
+#include "assert/simple_assert.h"
 
 using std::array;
 using std::cin;
 using std::cout;
+using std::string;
 using std::vector;
 
 template <typename T>
@@ -139,6 +144,13 @@ void vector_iter()
         cout << *iter_r << ", ";
     }
     cout << "\n";
+
+    int int_arr[] = {1, 2, 3, 4, 5};
+    vector<int> v1(std::begin(int_arr), std::end(int_arr));
+    for (int i = 0; i < 5; i++)
+    {
+        RELEASE_ASSERT(i + 1 == int_arr[i]);
+    }
 }
 
 void array_iter()
@@ -165,10 +177,44 @@ void array_iter()
     cout << "\n";
 }
 
+void vector_range_check()
+{
+    vector<int> v{1, 2, 3, 4, 5};
+    RELEASE_ASSERT(v[4] == 5);
+    RELEASE_ASSERT(v[5] != 6); // without range check
+    RELEASE_ASSERT(v.at(4) == 5);
+    // RELEASE_ASSERT(v.at(5) != 6); // out_of_range check at runtime
+    v.at(4) = 6;
+    RELEASE_ASSERT(v.at(4) == 6);
+}
+
+void array_range_check()
+{
+    array<int, 5> v{1, 2, 3, 4, 5};
+    RELEASE_ASSERT(v[4] == 5);
+    RELEASE_ASSERT(v[5] != 6); // without range check
+    RELEASE_ASSERT(v.at(4) == 5);
+    // RELEASE_ASSERT(v.at(5) != 6); // out_of_range check at runtime
+    v.at(4) = 6;
+    RELEASE_ASSERT(v.at(4) == 6);
+}
+
+void string_range_check()
+{
+    string v{"12345"};
+    RELEASE_ASSERT(v[4] == '5');
+    RELEASE_ASSERT(v[5] != '6'); // without range check
+    RELEASE_ASSERT(v.at(4) == '5');
+    // RELEASE_ASSERT(v.at(5) != '6'); // out_of_range check at runtime
+}
+
 int main()
 {
     vector_init();
     vector_iter();
     array_init();
     array_iter();
+    vector_range_check();
+    array_range_check();
+    string_range_check();
 }

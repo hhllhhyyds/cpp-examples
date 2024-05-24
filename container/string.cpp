@@ -86,5 +86,10 @@ int main()
     // string_io_3();
     string_cmp();
 
+    char c_str[] = "hello c str";
+    string s0 = c_str; // compiler warning
+    string s1(s0.c_str());
+    RELEASE_ASSERT(s1 == "hello c str");
+
     return 0;
 }
