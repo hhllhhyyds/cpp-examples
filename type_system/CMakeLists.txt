@@ -1,1 +1,0 @@
-add_executable(left_reference left_reference.cpp)

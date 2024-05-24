@@ -29,6 +29,6 @@ add_compile_options(-Werror)
 include_directories(${CMAKE_SOURCE_DIR})
 
 # subdirectories
-add_subdirectory(type_system)
 add_subdirectory(container)
 add_subdirectory(basic_types)
+add_subdirectory(operator)
