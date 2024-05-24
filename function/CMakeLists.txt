@@ -1,0 +1,1 @@
+add_exec_and_test(function_pointer function_pointer.cpp)

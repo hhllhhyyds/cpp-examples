@@ -1,20 +1,22 @@
+#ifndef __BASIC_TYPE_INFO_H__
+#define __BASIC_TYPE_INFO_H__
+
 #include <string>
 #include <iostream>
 
-using std::cout;
-using std::string;
-
 template <typename T>
-void print_type_info(const string &type_name = "", const string &header_name = "")
+void print_type_info(const std::string &type_name = "", const std::string &header_name = "")
 {
     T x;
-    string name(type_name.empty() ? typeid(x).name() : type_name.c_str());
-    cout << "Type: " << name << ",";
+    std::string name(type_name.empty() ? typeid(x).name() : type_name.c_str());
+    std::cout << "Type: " << name << ",";
     for (auto i = 0; i < 20 - name.size(); ++i)
-        cout << " ";
-    string header(header_name.empty() ? "None" : header_name);
-    cout << "Header: " << header << ",";
+        std::cout << " ";
+    std::string header(header_name.empty() ? "None" : header_name);
+    std::cout << "Header: " << header << ",";
     for (auto i = 0; i < 10 - header.size(); ++i)
-        cout << " ";
-    cout << "Size: " << sizeof(x) << " Bytes" << "\n";
+        std::cout << " ";
+    std::cout << "Size: " << sizeof(x) << " Bytes" << "\n";
 }
+
+#endif // __BASIC_TYPE_INFO_H__

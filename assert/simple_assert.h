@@ -1,10 +1,10 @@
+#ifndef __SIMPLE_ASSERT_H__
+#define __SIMPLE_ASSERT_H__
+
 #include <cassert>
 #include <cstdlib>
 #include <iostream>
 #include <limits>
-
-#ifndef __SIMPLE_ASSERT__
-#define __SIMPLE_ASSERT__
 
 #define __RED_IN_TERMINAL(str) ("\033[1;31m" str "\033[0m")
 #define __YELLOW_IN_TERMINAL(str) ("\033[1;33m" str "\033[0m")
