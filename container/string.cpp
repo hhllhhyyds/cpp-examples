@@ -87,8 +87,9 @@ int main()
     string_cmp();
 
     char c_str[] = "hello c str";
-    string s0 = c_str; // compiler warning
-    string s1(s0.c_str());
+    char *ptr = c_str;
+    string s0 = ptr; // compiler warning
+    string s1(ptr);
     RELEASE_ASSERT(s1 == "hello c str");
 
     return 0;

@@ -78,10 +78,34 @@ void bool_convert()
     RELEASE_ASSERT(c == 0);
 }
 
+void type_cast()
+{
+    int a = 5;
+    auto b = static_cast<float>(a) / 2;
+    RELEASE_ASSERT(FLOAT_DIFF_ABS_EQ(b, 2.5));
+    auto c = static_cast<int>(b) / 2;
+    RELEASE_ASSERT(c == 1);
+
+    const char c_str[] = "hello c str";
+    const char *ptr = c_str;
+    auto s = static_cast<std::string>(ptr);
+    RELEASE_ASSERT(s == "hello c str");
+
+    char *mut_ptr = const_cast<char *>(ptr);
+    mut_ptr[0] = 'H';
+    s = static_cast<std::string>(ptr);
+    RELEASE_ASSERT(s == "Hello c str");
+
+    char cx[] = "abcdefgh";
+    int *ip = reinterpret_cast<int *>(cx);
+    std::cout << ip[0] << " " << ip[1] << "\n";
+}
+
 int main()
 {
     float_convert();
     signed_to_unsigned();
     overflow();
     bool_convert();
+    type_cast();
 }
