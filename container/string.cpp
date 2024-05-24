@@ -72,9 +72,9 @@ void string_cmp()
     string s1, s2;
     s1 = "Hello";
     s2 = "Hallo";
-    DEBUG_ASSERT(s1 > s2);
+    RELEASE_ASSERT(s1 > s2);
     string s3 = "Hello x";
-    DEBUG_ASSERT(s3 > s1);
+    RELEASE_ASSERT(s3 > s1);
 }
 
 int main()
