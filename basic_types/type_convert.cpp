@@ -3,9 +3,9 @@
 void float_convert()
 {
     int i = 0;
-    i = 3.14;
+    i = (int)3.14;
     RELEASE_ASSERT(i == 3);
-    i = -3.14;
+    i = (int)-3.14;
     RELEASE_ASSERT(i == -3);
 
     double d = 3.1414;
@@ -65,7 +65,7 @@ void bool_convert()
     a = 0;
     RELEASE_ASSERT(a == false);
 
-    a = 5.5;
+    a = (bool)5.5;
     RELEASE_ASSERT(a == true);
     a = 0.0;
     RELEASE_ASSERT(a == false);

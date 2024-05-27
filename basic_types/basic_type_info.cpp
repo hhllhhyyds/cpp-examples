@@ -2,7 +2,9 @@
 #include <cstdint>
 
 #ifdef CXX_STANDARD_23
+#if defined(__linux__)
 #include <stdfloat>
+#endif
 #endif
 
 #include "type_info.h"
@@ -46,9 +48,11 @@ int main()
     print_type_info<std::uint64_t>("std::uint64_t", "cstdint");
 
 #ifdef CXX_STANDARD_23
+#if defined(__linux__)
     print_type_info<std::float16_t>("std::float16_t", "stdfloat");
     print_type_info<std::float32_t>("std::float32_t", "stdfloat");
     print_type_info<std::float64_t>("std::float64_t", "stdfloat");
     print_type_info<std::float128_t>("std::float128_t", "stdfloat");
+#endif
 #endif
 }
