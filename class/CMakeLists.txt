@@ -1,0 +1,3 @@
+add_exec_and_test(const_this const_this.cpp)
+add_exec_and_test(default_constructor default_constructor.cpp)
+add_exec_and_test(friend friend.cpp)
